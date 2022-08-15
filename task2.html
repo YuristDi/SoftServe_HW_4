@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+</head>
+<body>
+        <p>Для видачі чеку введіть назву товарів, їхню кількість та ціну відповідно:</p>
+        <input type = "text" class = "item" placeholder = "Назва товару" required>
+        <input type = "number" class = "number" placeholder = "Кількість" min = "1" required>
+        <input type = "number" class = "price" placeholder = "Ціна" min = "0" required></br>
+        <input type = "text" class = "item" placeholder = "Назва товару" required>
+        <input type = "number" class = "number" placeholder = "Кількість" min = "1" required>
+        <input type = "number" class = "price" placeholder = "Ціна" min = "0" required></br>
+        <input type = "text" class = "item" placeholder = "Назва товару" required>
+        <input type = "number" class = "number" placeholder = "Кількість" min = "1" required>
+        <input type = "number" class = "price" placeholder = "Ціна" min = "0" required></br>
+    <hr>
+    <input type = "button" id = "calculate" value = "Розрахувати">
+    <div id = "result1"></div>
+    <div id = "result2"></div>
+    <div id = "result3"></div>
+    <div id = "result4"></div>
+
+    <script>
+        /*2. "Створити масив, який описує чек у магазині. 
+Кожен елемент масиву складається із назви товару, кількості та ціни за одиницю товару. Написати такі функції.
+Роздруківка чека на екран.
+Підрахунок загальної суми покупки.
+Отримання найдорожчої покупки у чеку.
+Підрахунок середньої вартості одного товару у чеку."*/
+    let res1 = document.querySelector("#result1");
+    let res2 = document.querySelector("#result2");
+    let res3 = document.querySelector("#result3");
+    let res4 = document.querySelector("#result4");
+    let cal = document.getElementById('calculate');
+    
+    let sumOfPrices = 0;
+    let avaragePrice = 0;
+    let maxPrice = 0;
+
+    function show(){
+        let items = document.querySelectorAll('.item');
+        let itemsValue = [];
+        let prices = document.querySelectorAll('.price');
+        let pricesValue = [];
+        let numbers = document.querySelectorAll('.number');
+        let numbersValue = [];
+        for(let i = 0; i < prices.length; i++){
+            numbersValue.push(+numbers[i].value);
+            pricesValue.push(+prices[i].value);
+            itemsValue.push(items[i].value);
+            res1.innerHTML += `${itemsValue[i]} - ${numbersValue[i]} шт. - ${pricesValue[i]} грн </br>`;
+        }
+    }
+
+    function sum(){
+        let prices = document.querySelectorAll('.price');
+        let pricesValue = [];
+        let numbers = document.querySelectorAll('.number');
+        let numbersValue = [];
+        for(let i = 0; i < prices.length; i++){
+            numbersValue.push(+numbers[i].value);
+            pricesValue.push(+prices[i].value);
+            sumOfPrices += (pricesValue[i] * numbersValue[i])
+        }
+        res2.innerHTML = `Загальна сума - ${sumOfPrices} грн`;
+    }
+
+    function max(){
+        let prices = document.querySelectorAll('.price');
+        let pricesValue = [];
+        for(let i = 0; i < prices.length; i++){
+            pricesValue.push(+prices[i].value);
+            if(pricesValue[i] > maxPrice){
+            maxPrice = pricesValue[i];}
+        }
+        res4.innerHTML = `Максимальна ціна - ${maxPrice} грн`;
+    }
+
+    function avarage(){
+        let prices = document.querySelectorAll('.price');
+        let pricesValue = [];
+        let sumPricesValue = 0;
+        for(let i = 0; i < prices.length; i++){
+            pricesValue.push(+prices[i].value);
+            sumPricesValue += pricesValue[i];
+        }
+        avaragePrice = sumPricesValue/3;
+        res3.innerHTML = `Середнє значення - ${avaragePrice} грн`;
+    }
+
+
+    cal.onclick = function(){
+        show();
+        sum();
+        max();
+        avarage();
+    }
+    </script>
+</body>
+</html>

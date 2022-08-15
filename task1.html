@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+</head>
+<body>
+
+    <script>
+        /*1. "Ваше завдання - відсортувати заданий рядок. Кожне слово в рядку міститиме одне число. 
+Це число є позиція, яку має мати слово в результаті. 
+Примітка. Числа можуть бути від 1 до 9. Отже, 1 буде першим словом (а не 0).
+Якщо вхідний рядок порожній, поверніть порожній рядок. 
+Слова у вхідному рядку будуть містити лише дійсні послідовні числа. Приклад:
+""is2 Thi1s T4est 3a"" --> ""Thi1s is2 3a T4est""
+""4of Fo1r pe6ople g3ood th5e the2"" --> ""Fo1r the2 g3ood 4of th5e pe6ople""
+"""" --> """"" */
+
+let line = prompt("Enter your sentence:");
+let lineArr = line.split(' ');//розбиваємо речення на масив зі слів
+let answer = [];
+
+for (let i = 0; i < lineArr.length; i++){
+    let wordArr = Array.from(lineArr[i]);//розбиваємо і-те слово на масив з букв
+    for(let a = 0; a < wordArr.length; a++){//проходимо по кожному з символів в слові
+    switch(wordArr[a]){
+            case "1": answer[0] = lineArr[i];
+            break;
+            case "2": answer[1] = lineArr[i];
+            break;
+            case "3": answer[2] = lineArr[i];
+            break;
+            case "4": answer[3] = lineArr[i];
+            break;
+            case "5": answer[4] = lineArr[i];
+            break;
+            case "6": answer[5] = lineArr[i];
+            break;
+            case "7": answer[6] = lineArr[i];
+            break;
+            case "8": answer[7] = lineArr[i];
+            break;
+            case "9": answer[8] = lineArr[i];
+            break;
+        }}
+}
+
+alert(answer);
+    </script>
+</body>
+</html>
