@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+</head>
+<body>
+
+    <script>
+        /*3. "Написати функцію – калькулятор. 
+Функція приймає рядок з прикладом, визначає, яка дія необхідна виконати (+ - * /), 
+переводить операнди у числа, вирішує приклад та повертає результат.
+
+calc(12, 4, '+') //16
+calc(1, 4, '-') //-3
+calc(12, 5, '/') //2.4
+calc(1.2, 3, '*') //3.6"*/
+
+    let line = prompt("Введіть два значення та дію ( +, - , *, /) через кому:");
+    let lineArr = line.split(",");
+    let a = +lineArr[0];
+    let b = +lineArr[1];
+    let c = lineArr[2];
+
+    function calc(){
+        switch(c){
+            case '+' : alert(a + b);
+            break;
+            case '-' : alert(a - b);
+            break;
+            case '*' : alert(a * b);
+            break;
+            case '/' : alert(a / b);
+            break;
+        }
+    }
+
+    calc();
+    </script>
+</body>
+</html>
